@@ -9,10 +9,18 @@ var time = document.getElementById("time").value;
 
 
 // Storing data
+var userDetails = {
+    name: name,
+    email: email,
+    phone: phone,
+    date: date,
+    time: time
+    
+  };
+  
+  var userDetailsString = JSON.stringify(userDetails);
+  var uniqueKey = "userDetails" + Date.now(); // Appending a timestamp to create a unique key
+  localStorage.setItem(uniqueKey, userDetailsString);
 
-var userName = localStorage.setItem("name", name); 
-var userEmail = localStorage.setItem("email", email);
-var userPhone = localStorage.setItem("phone", phone);
-var userDate = localStorage.setItem("date", date);
-var userTime = localStorage.setItem("time", time);
+
 }

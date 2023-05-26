@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Home Page</title>
+</head>
+<body>
+  <div id="userDataContainer" class="container">
+    <h1 class="heading">User Data</h1>
+    <hr>
+  </div>
+
+  <script>
+    // Retrieve user data from local storage
+    var userData = JSON.parse(localStorage.getItem("userData"));
+
+    if (userData && userData.length > 0) {
+      var userDataContainer = document.getElementById("userDataContainer");
+
+      // Iterate over each user data object
+      userData.forEach(function(user) {
+        // Create HTML elements to display the user data
+        var userDiv = document.createElement("div");
+        userDiv.classList.add("user-data");
+
+        var namePara = document.createElement("p");
+        namePara.innerText = "Name: " + user.name;
+
+        var emailPara = document.createElement("p");
+        emailPara.innerText = "Email: " + user.email;
+
+        var phonePara = document.createElement("p");
+        phonePara.innerText = "Phone Number: " + user.phone;
+
+        var datePara = document.createElement("p");
+        datePara.innerText = "Date: " + user.date;
+
+        var timePara = document.createElement("p");
+        timePara.innerText = "Time: " + user.time;
+
+        // Append the user data elements to the container
+        userDiv.appendChild(namePara);
+        userDiv.appendChild(emailPara);
+        userDiv.appendChild(phonePara);
+        userDiv.appendChild(datePara);
+        userDiv.appendChild(timePara);
+
+        userDataContainer.appendChild(userDiv);
+      });
+    }
+  </script>
+</body>
+</html>
